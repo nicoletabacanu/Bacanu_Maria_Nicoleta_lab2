@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Bacanu_Maria_Nicoleta_lab2.Data;
 using Bacanu_Maria_Nicoleta_lab2.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Bacanu_Maria_Nicoleta_lab2.Pages.Books
 {
@@ -22,8 +23,8 @@ namespace Bacanu_Maria_Nicoleta_lab2.Pages.Books
 
         public IActionResult OnGet()
         { 
-            ViewData["AuthorID"] = new SelectList(AuthorList, "ID", "FullName");
-            ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID",
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "FullName");
+            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID",
            "PublisherName");
 
             var book = new Book();
@@ -40,7 +41,9 @@ namespace Bacanu_Maria_Nicoleta_lab2.Pages.Books
         public async Task<IActionResult> OnPostAsync()
         {
             var newBook = new Book();
-            if (selectedCaterories != null)
+            var selectedCategories = Request.Form["selectedCategories"];
+
+            if (selectedCategories.Any())
             {
                 newBook.BookCategories = new List<BookCategory>();
                 foreach (var cat in selectedCategories)

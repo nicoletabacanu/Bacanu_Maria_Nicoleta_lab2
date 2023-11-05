@@ -36,7 +36,8 @@ namespace Bacanu_Maria_Nicoleta_lab2.Pages.Books
                 .Include(b => b.Publisher)
                 .Include(b => b.BookCategories).ThenInclude(b => b.Category)
                 .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync (m => m.ID == id);
+
             if (book == null)
             {
                 return NotFound();
@@ -63,11 +64,11 @@ PopulateAssignedCategoryData(_context, Book);
             {
                 return NotFound();
             }
-            //se va include Author conform cu sarcina de la lab 2
+           
             var bookToUpdate = await _context.Book
             .Include(i => i.Publisher)
             .Include(i => i.BookCategories)
-            .ThenInclude(i => i.Category)
+                .ThenInclude(i => i.Category)
             .FirstOrDefaultAsync(s => s.ID == id);
             if (bookToUpdate == null)
             {
