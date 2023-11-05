@@ -17,5 +17,12 @@ namespace Bacanu_Maria_Nicoleta_lab2.Data
         public DbSet<Bacanu_Maria_Nicoleta_lab2.Models.Book> Book { get; set; } = default!;
 
         public DbSet<Bacanu_Maria_Nicoleta_lab2.Models.Publisher>? Publisher { get; set; }
+
+        public DbSet<Bacanu_Maria_Nicoleta_lab2.Models.Author>? Authors { get; set; } = default!;
+
+        public DbSet<Bacanu_Maria_Nicoleta_lab2.Models.BookCategory>? BookCategory { get; set; }
+
+        public DbSet<Bacanu_Maria_Nicoleta_lab2.Models.Category>? Category { get; set; }
+
     }
 }

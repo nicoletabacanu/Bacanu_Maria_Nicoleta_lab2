@@ -1,10 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Books\NewFolder1\**" />
+    <Compile Remove="Pages\Books\NewFolder\**" />
+    <Compile Remove="Pages\NewFolder\**" />
+    <Content Remove="Pages\Books\NewFolder1\**" />
+    <Content Remove="Pages\Books\NewFolder\**" />
+    <Content Remove="Pages\NewFolder\**" />
+    <EmbeddedResource Remove="Pages\Books\NewFolder1\**" />
+    <EmbeddedResource Remove="Pages\Books\NewFolder\**" />
+    <EmbeddedResource Remove="Pages\NewFolder\**" />
+    <None Remove="Pages\Books\NewFolder1\**" />
+    <None Remove="Pages\Books\NewFolder\**" />
+    <None Remove="Pages\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Index.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Index.cshtml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />

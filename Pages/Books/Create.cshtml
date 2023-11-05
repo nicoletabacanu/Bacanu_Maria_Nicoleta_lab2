@@ -19,9 +19,9 @@
                 <span asp-validation-for="Book.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Book.Author" class="control-label"></label>
-                <input asp-for="Book.Author" class="form-control" />
-                <span asp-validation-for="Book.Author" class="text-danger"></span>
+                <label asp-for="Book.AuthorID" class="control-label">Author Name</label>
+                <input asp-for="Book.AuthorID" class="form-control" asp-items="ViewBag.AuthorID"></select>
+                <span asp-validation-for="Book.AuthorID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Book.Price" class="control-label"></label>
@@ -64,9 +64,7 @@ public IActionResult Create()
     return View(viewModel);
 }
 <label for="AuthorId">Author</label>
-<select asp-for="AuthorId" asp-items="Model.Authors">
-    <option value="">Select an author</option>
-</select>
+<option value="">Select an author</option>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
